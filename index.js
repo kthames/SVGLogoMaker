@@ -57,7 +57,7 @@ inquirer
             shapeRender = newShape.render();
         }
 
-        fs.writeFile(`./examples/${shape}.svg`, shapeRender, (err) =>
-        err ? console.error(err) : console.log('Success!'));
+        fs.writeFile(`logo.svg`, shapeRender, (err) =>
+        err ? console.error(err) : console.log('Generated logo.svg!'));
 
     });
