@@ -1,10 +1,13 @@
+//require inquirer and fs
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+//require shape classes from their files
 const Circle = require('./lib/circle');
 const Triangle = require('./lib/triangle');
 const Square = require('./lib/square');
 
+//get user input for text, text color, shape and shape color
 inquirer 
     .prompt([
         {
@@ -35,9 +38,7 @@ inquirer
         },
     ])
     .then(({text, textColor, shape, shapeColor}) => {
-        
-        //console.log(text, textColor, shape, shapeColor);
-        
+        //render shape based on user shape
         let shapeRender = " ";
         let newShape = " ";
 
@@ -56,7 +57,7 @@ inquirer
             console.log(newShape);
             shapeRender = newShape.render();
         }
-
+        //write svg file using rendered file
         fs.writeFile(`logo.svg`, shapeRender, (err) =>
         err ? console.error(err) : console.log('Generated logo.svg!'));
 
